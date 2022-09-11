@@ -15,7 +15,7 @@ try:
     username = driver.find_element(By.ID,"session_key")
     password = driver.find_element(By.ID,"session_password")
 
-    username.send_keys('mail adrress goes here')
+    username.send_keys('mail address goes here')
     password.send_keys('password goes here')
     time.sleep(2)
 
