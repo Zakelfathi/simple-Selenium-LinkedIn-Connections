@@ -15,8 +15,8 @@ try:
     username = driver.find_element(By.ID,"session_key")
     password = driver.find_element(By.ID,"session_password")
 
-    username.send_keys('abc@gmail.com')
-    password.send_keys('123456789')
+    username.send_keys('mail adrress goes here')
+    password.send_keys('password goes here')
     time.sleep(2)
 
     submit = driver.find_element(By.CLASS_NAME, "sign-in-form__submit-button")
@@ -38,11 +38,19 @@ while page <=4:
     for btn in connect_buttons:
         driver.execute_script("arguments[0].click();", btn)
         time.sleep(2)
-        send = driver.findElement(By.CSS_SELECTOR("button[class = 'artdeco-button artdeco-button--2 artdeco-button--primary ember-view ml1']"))
-        driver.execute_script("arguments[0].click();", send)
-        close = driver.find_element_by_xpath("//button[@aria-label='Dismiss']")
-        driver.execute_script("arguments[0].click();", close)
+        try:
+            send = driver.find_element(By.ID,"ember98")
+            driver.execute_script("arguments[0].click();", send)
+        except:
+            print("\n")
+        time.sleep(4)
+        try:
+            close = driver.find_element_by_xpath("//button[@aria-label='Dismiss']")
+            driver.execute_script("arguments[0].click();", close)
+        except:
+            print("\n")
         time.sleep(2)
     print(f"{'-'*6}page = {page}{'-'*6} ")
     page +=  1
 print(f"{'-'*6}script ended{'-'*6}")
+driver.quit()
